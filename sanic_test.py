@@ -5,6 +5,7 @@ import discord
 from dotenv import load_dotenv
 from discord.ext import commands
 import asyncio
+from multiprocessing import Process,Queue,Pipe
 
 
 #SANIC setup
@@ -19,6 +20,7 @@ async def index(request):
 
 
 
-
-app.run(host='0.0.0.0', port=8081)
+def main(pipe_end):
+    app.run(host='0.0.0.0', port=8081)
+    pass
 

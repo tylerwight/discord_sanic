@@ -22,8 +22,9 @@ bot = commands.Bot(command_prefix="^",intents=intents)
 async def ping(ctx):
     await ctx.send("bitch")
 
-
-bot.run(TOKEN)
+def main(pipe_end):
+    bot.run(TOKEN)
+    pass
 
 
 
