@@ -21,6 +21,7 @@ async def index(request):
 
 
 def main(pipe_end):
+    pipe_end.send("hello world")
     app.run(host='0.0.0.0', port=8081)
     pass
 
