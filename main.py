@@ -14,7 +14,12 @@ sanic = Process(
         args = (sanic_test_pipe_end,)
         )
 
+
 sanicbot.start()
 sanic.start()
 sanicbot.join()
 sanic.join()
+
+
+a = sanic.recv()
+print(a)
