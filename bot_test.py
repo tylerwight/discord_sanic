@@ -60,6 +60,23 @@ async def index(request):
     template = open(os.getcwd() + "/templates/index.html")
     return html(template.read())
 
+@app.post('/spotcode')
+async def spotcode(request):
+    parameters = request.json
+    print(parameters['code'])
+    token_info = sp_oauth.get_access_token(parameters['code'])
+    access_token = token_info['access_token']
+    print(token_info)
+    print(access_token)
+    sp = spotipy.Spotify(access_token)
+    print(sp.current_user())
+    user = sp.current_user()
+    print('=======================================================')
+    print(user['display_name'])
+    print(sp.user_playlists(user['display_name']))
+    return text("did it")
+
+
 @app.post('/spotauth')
 async def spotauth(request):
     parameters = request.json
